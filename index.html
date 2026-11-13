@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ken Analysis FC | Daily Basketball Analysis</title>
+<meta name="description" content="Daily basketball analysis and predictions. Results posted openly. Join our Telegram community. 18+">
+<style>
+:root{--blue:#1a4398;--dark:#0f2a63;--yellow:#ffc933;--white:#fff;--green:#3ddc84;--red:#ff6b6b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--blue);color:var(--white);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:28px 18px}
+.wrap{width:100%;max-width:460px}
+.brand{text-align:center;font-size:26px;font-weight:800;letter-spacing:1px}
+.brand span{color:var(--yellow)}
+h1{text-align:center;font-size:32px;line-height:1.15;font-weight:900;margin:22px 0 12px}
+.sub{text-align:center;font-size:17px;opacity:.92;margin-bottom:22px}
+.card{background:var(--dark);border:2px dotted rgba(255,255,255,.55);border-radius:14px;padding:6px 18px;margin-bottom:22px}
+.item{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.25);font-size:16px;line-height:1.4}
+.item:last-child{border-bottom:none}
+.item b{color:var(--yellow)}
+.dot{flex:0 0 26px;height:26px;border-radius:50%;background:var(--yellow);color:var(--dark);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px}
+.btn{display:block;width:100%;text-align:center;background:var(--yellow);color:#0a1f5c;font-size:20px;font-weight:800;padding:18px 12px;border-radius:12px;text-decoration:none;box-shadow:0 6px 0 #c99a10}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #c99a10}
+.note{text-align:center;font-size:13px;opacity:.85;margin-top:16px;line-height:1.5}
+.foot{text-align:center;font-size:12px;opacity:.75;margin-top:26px;line-height:1.5}
+/* results */
+#results{display:none;margin-bottom:22px}
+#results h2{text-align:center;font-size:20px;margin-bottom:6px}
+.tally{text-align:center;font-size:15px;opacity:.9;margin-bottom:12px}
+.res{display:flex;justify-content:space-between;align-items:center;background:var(--dark);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:15px}
+.res .tag{font-weight:800;padding:3px 10px;border-radius:20px;font-size:13px;color:#06301a;background:var(--green)}
+.res .tag.lost{background:var(--red);color:#3a0808}
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3058203604541128');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3058203604541128&ev=PageView&noscript=1"
+/></noscript>
+
+<div class="wrap">
+  <div class="brand">KEN <span>ANALYSIS</span> FC</div>
+  <h1>Daily Basketball Analysis</h1>
+  <p class="sub">Well-analyzed predictions, shared every day on our Telegram community.</p>
+
+  <div class="card">
+    <div class="item"><div class="dot">1</div><div><b>We study the games.</b> Team records, recent form and winning chances are checked before we pick.</div></div>
+    <div class="item"><div class="dot">2</div><div><b>Low, smart odds.</b> No chasing 10 odds. No chasing 100 odds.</div></div>
+    <div class="item"><div class="dot">3</div><div><b>Results posted openly.</b> You can follow our performance for yourself.</div></div>
+  </div>
+
+  <!-- Results: filled from the RESULTS list below. Hidden when the list is empty. -->
+  <div id="results">
+    <h2>Recent results</h2>
+    <p class="tally" id="tally"></p>
+    <div id="resList"></div>
+  </div>
+
+  <a id="join" class="btn" href="https://t.me/kenanalysis1">JOIN OUR TELEGRAM COMMUNITY</a>
+  <p class="note">No result is guaranteed. Predictions are analysis, not promises.</p>
+
+  <p class="foot">18+ only. Please act responsibly.<br>&copy; Ken Analysis FC</p>
+</div>
+
+<script>
+/* ===== EDIT HERE: add your REAL results, newest first =====
+   Example line:  {date:"13/11", odds:"2.26", won:true},
+   Only add tickets you really posted. Leave the list empty to hide the section. */
+var RESULTS = [
+  // {date:"13/11", odds:"2.26", won:true},
+];
+
+(function(){
+  if(!RESULTS.length) return;
+  var wins = RESULTS.filter(function(r){return r.won;}).length;
+  document.getElementById('tally').textContent = wins + ' won out of ' + RESULTS.length + ' posted';
+  var list = document.getElementById('resList');
+  RESULTS.forEach(function(r){
+    var d = document.createElement('div'); d.className='res';
+    d.innerHTML = '<span>'+r.date+' &middot; '+r.odds+' odds</span><span class="tag'+(r.won?'':' lost')+'">'+(r.won?'WON':'LOST')+'</span>';
+    list.appendChild(d);
+  });
+  document.getElementById('results').style.display='block';
+})();
+
+document.getElementById('join').addEventListener('click',function(e){
+  e.preventDefault();
+  var url=this.href;
+  try{fbq('track','Lead');}catch(err){}
+  setTimeout(function(){window.location.href=url;},250);
+});
+</script>
+</body>
+</html>
